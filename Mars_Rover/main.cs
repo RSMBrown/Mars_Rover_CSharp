@@ -57,8 +57,10 @@ namespace Mars_Rover
 
             foreach (Rover rover in roverList)
             {
-                Console.WriteLine($"{rover.posx} {rover.posy} {rover.direction}");
+                Console.WriteLine($"New Position: {rover.posx} {rover.posy} {rover.direction}\n");
             }
+
+            plateau1.printGrid(roverList);
         }
     }
 }
