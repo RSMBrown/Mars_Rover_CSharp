@@ -46,12 +46,12 @@ namespace Mars_Rover
             List<Rover> roverList = new List<Rover>();
 
             Rover newRover1 = new Rover(xRoverOne, yRoverOne, positionRoverOne);
-            NewPosition.Move(movementRoverOneArray, ref newRover1, ref plateau1);
+            NewPosition.Move(movementRoverOneArray, ref newRover1, plateau1);
 
             roverList.Add(newRover1);
 
             Rover newRover2 = new Rover(xRoverTwo, yRoverTwo, positionRoverTwo);
-            NewPosition.Move(movementRoverTwoArray, ref newRover2, ref plateau1);
+            NewPosition.Move(movementRoverTwoArray, ref newRover2, plateau1);
 
             roverList.Add(newRover2);
 

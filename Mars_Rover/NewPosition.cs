@@ -7,7 +7,7 @@ namespace NewPositionNamespace
 {
     internal static class NewPosition
     {
-        public static void Move(string[] setMovement, ref Rover rover, ref Plateau plateau)
+        public static void Move(string[] setMovement, ref Rover rover, Plateau plateau)
         {
             foreach (string mov in setMovement)
             {
