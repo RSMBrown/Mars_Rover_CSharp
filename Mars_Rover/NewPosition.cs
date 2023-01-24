@@ -5,9 +5,9 @@ using PlateauNamespace;
 
 namespace NewPositionNamespace
 {
-    internal class NewPosition
+    internal static class NewPosition
     {
-        public NewPosition(string[] setMovement, Rover rover, Plateau plateau)
+        public static void Move(string[] setMovement, ref Rover rover, ref Plateau plateau)
         {
             foreach (string mov in setMovement)
             {

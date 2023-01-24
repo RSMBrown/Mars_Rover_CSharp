@@ -12,7 +12,7 @@ namespace Mars_Rover
         {
             string text = File.ReadAllText(@"C:\Users\Roxy Brown\source\repos\Mars_Rover\Mars_Rover\input.txt");
 
-            string[] allText = text.Split("\n");
+            string[] allText = text.Split(Environment.NewLine, StringSplitOptions.None);
             string plateau = allText[0];
             string currentPositionRoverOne = allText[1];
             string movementRoverOne = allText[2];
@@ -33,8 +33,8 @@ namespace Mars_Rover
             int yRoverTwo = Convert.ToInt32(currentPositionRoverTwoArray[1]);
             string positionRoverTwo = currentPositionRoverTwoArray[2];
 
-            string[] movementRoverOneArray = movementRoverOne.Split(" ");
-            string[] movementRoverTwoArray = movementRoverTwo.Split(" ");
+            string[] movementRoverOneArray = movementRoverOne.Split("");
+            string[] movementRoverTwoArray = movementRoverTwo.Split("");
 
             Console.WriteLine("Welcome to the Rover changing station.\n");
             Console.WriteLine("-----------------------------------------------------");
@@ -46,12 +46,12 @@ namespace Mars_Rover
             List<Rover> roverList = new List<Rover>();
 
             Rover newRover1 = new Rover(xRoverOne, yRoverOne, positionRoverOne);
-            NewPosition setPosition1 = new NewPosition(movementRoverOneArray, newRover1, plateau1);
+            NewPosition.Move(movementRoverOneArray, ref newRover1, ref plateau1);
 
             roverList.Add(newRover1);
 
             Rover newRover2 = new Rover(xRoverTwo, yRoverTwo, positionRoverTwo);
-            NewPosition setPosition2 = new NewPosition(movementRoverTwoArray, newRover2, plateau1);
+            NewPosition.Move(movementRoverTwoArray, ref newRover2, ref plateau1);
 
             roverList.Add(newRover2);
 
