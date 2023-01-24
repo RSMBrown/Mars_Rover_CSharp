@@ -33,8 +33,8 @@ namespace Mars_Rover
             int yRoverTwo = Convert.ToInt32(currentPositionRoverTwoArray[1]);
             string positionRoverTwo = currentPositionRoverTwoArray[2];
 
-            string[] movementRoverOneArray = movementRoverOne.Split("");
-            string[] movementRoverTwoArray = movementRoverTwo.Split("");
+            char[] movementRoverOneArray = movementRoverOne.ToCharArray();
+            char[] movementRoverTwoArray = movementRoverTwo.ToCharArray();
 
             Console.WriteLine("Welcome to the Rover changing station.\n");
             Console.WriteLine("-----------------------------------------------------");

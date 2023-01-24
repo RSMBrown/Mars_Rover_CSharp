@@ -7,17 +7,17 @@ namespace NewPositionNamespace
 {
     internal static class NewPosition
     {
-        public static void Move(string[] setMovement, ref Rover rover, Plateau plateau)
+        public static void Move(char[] setMovement, ref Rover rover, Plateau plateau)
         {
-            foreach (string mov in setMovement)
+            foreach (char mov in setMovement)
             {
                 string direction = rover.direction; 
                 if (direction == "N")
                 {
-                    if (mov == "L")
+                    if (mov == 'L')
                     {
                         rover.direction = "W";
-                    } else if (mov == "R")
+                    } else if (mov == 'R')
                     {
                         rover.direction = "E";
                     }
@@ -25,10 +25,10 @@ namespace NewPositionNamespace
 
                 if (direction == "E")
                 {
-                    if (mov == "L")
+                    if (mov == 'L')
                     {
                         rover.direction = "N";
-                    } else if (mov == "R")
+                    } else if (mov == 'R')
                     {
                         rover.direction = "S";
                     }
@@ -36,10 +36,10 @@ namespace NewPositionNamespace
 
                 if (direction == "S")
                 {
-                    if (mov == "L")
+                    if (mov == 'L')
                     {
                         rover.direction = "E";
-                    } else if (mov == "R")
+                    } else if (mov == 'R')
                     {
                         rover.direction = "W";
                     }
@@ -47,22 +47,22 @@ namespace NewPositionNamespace
 
                 if (direction == "W")
                 {
-                    if (mov == "L")
+                    if (mov == 'L')
                     {
                         rover.direction = "S";
-                    } else if (mov == "R")
+                    } else if (mov == 'R')
                     {
                         rover.direction = "N";
                     }
                 }
 
-                if (mov == "M" &&  rover.direction == "N" )
+                if (mov == 'M' &&  rover.direction == "N" )
                 {
                     if (rover.posy + 1 <= plateau.width )
                     {
                         rover.posy += 1;
                     }
-                } else if (mov == "M" && rover.direction == "S" )
+                } else if (mov == 'M' && rover.direction == "S" )
                 {
                     if (rover.posy - 1 >= 0 )
                     {
@@ -70,14 +70,14 @@ namespace NewPositionNamespace
                     }
                 }
 
-                if (mov == "M" && rover.direction == "E")
+                if (mov == 'M' && rover.direction == "E")
                 {
                     if (rover.posx + 1 <= plateau.height)
                     {
                         rover.posx += 1;
                     }
                 }
-                else if (mov == "M" && rover.direction == "W")
+                else if (mov == 'M' && rover.direction == "W")
                 {
                     if (rover.posx - 1 >= 0)
                     {
