@@ -8,7 +8,7 @@ namespace Mars_Rover
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             string text = File.ReadAllText(@"C:\Users\Roxy Brown\source\repos\Mars_Rover\Mars_Rover\input.txt");
 
