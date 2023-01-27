@@ -10,6 +10,8 @@ namespace Mars_Rover
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(args[0]);
+            Console.WriteLine(args[1]);
             string text = File.ReadAllText(@"C:\Users\Roxy Brown\source\repos\Mars_Rover\Mars_Rover\input.txt");
 
             string[] allText = text.Split(Environment.NewLine, StringSplitOptions.None);
