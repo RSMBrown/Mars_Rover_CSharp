@@ -4,7 +4,7 @@ using PlateauNamespace;
 using NewPositionNamespace;
 using RoverNamespace;
 
-namespace Mars_Rover
+namespace MarsRover
 {
     class Program
     {
