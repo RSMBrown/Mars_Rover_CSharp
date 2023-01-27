@@ -10,52 +10,44 @@ namespace Mars_Rover
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(args[0]);
-            Console.WriteLine(args[1]);
-            string text = File.ReadAllText(@"C:\Users\Roxy Brown\source\repos\Mars_Rover\Mars_Rover\input.txt");
+            string text = File.ReadAllText(args[0]);
+
+            Console.WriteLine("Welcome to the Rover changing station.\n");
+            Console.WriteLine("-----------------------------------------------------");
 
             string[] allText = text.Split(Environment.NewLine, StringSplitOptions.None);
             string plateau = allText[0];
-            string currentPositionRoverOne = allText[1];
-            string movementRoverOne = allText[2];
-            string currentPositionRoverTwo = allText[3];
-            string movementRoverTwo = allText[4];
 
             string[] plateauArray = plateau.Split(" ");
             int width = Convert.ToInt32(plateauArray[0]);
             int height = Convert.ToInt32(plateauArray[1]);
 
-            string[] currentPositionRoverOneArray = currentPositionRoverOne.Split(" ");
-            int xRoverOne = Convert.ToInt32(currentPositionRoverOneArray[0]);
-            int yRoverOne = Convert.ToInt32(currentPositionRoverOneArray[1]);
-            string positionRoverOne = currentPositionRoverOneArray[2];
-
-            string[] currentPositionRoverTwoArray = currentPositionRoverTwo.Split(" ");
-            int xRoverTwo = Convert.ToInt32(currentPositionRoverTwoArray[0]);
-            int yRoverTwo = Convert.ToInt32(currentPositionRoverTwoArray[1]);
-            string positionRoverTwo = currentPositionRoverTwoArray[2];
-
-            char[] movementRoverOneArray = movementRoverOne.ToCharArray();
-            char[] movementRoverTwoArray = movementRoverTwo.ToCharArray();
-
-            Console.WriteLine("Welcome to the Rover changing station.\n");
-            Console.WriteLine("-----------------------------------------------------");
-            Console.WriteLine($"Input text is as follows: \nPlateau: {width}, {height} \nRover One Position: {xRoverOne} {yRoverOne} {positionRoverOne}\n" +
-                $"Rover One Movement: {movementRoverOne}\nRover Two Position: {xRoverTwo} {yRoverTwo} {positionRoverTwo}\nRover Two Movement: {movementRoverTwo}\n");
-
             Plateau plateau1 = new Plateau(width, height);
+
+            Console.WriteLine($"Input text is as follows: \nPlateau: {width}, {height}");
 
             List<Rover> roverList = new List<Rover>();
 
-            Rover newRover1 = new Rover(xRoverOne, yRoverOne, positionRoverOne);
-            NewPosition.Move(movementRoverOneArray, ref newRover1, plateau1);
+            for (int i = 0; i <= allText.Length - 2 ; i+=2)
+            {
+                string currentPositionRover = allText[i + 1];
+                string movementRover = allText[i + 2];
 
-            roverList.Add(newRover1);
+                string[] currentPositionRoverArray = currentPositionRover.Split(" ");
+                int xRover = Convert.ToInt32(currentPositionRoverArray[0]);
+                int yRover = Convert.ToInt32(currentPositionRoverArray[1]);
+                string positionRover = currentPositionRoverArray[2];
 
-            Rover newRover2 = new Rover(xRoverTwo, yRoverTwo, positionRoverTwo);
-            NewPosition.Move(movementRoverTwoArray, ref newRover2, plateau1);
+                char[] movementRoverArray = movementRover.ToCharArray();
 
-            roverList.Add(newRover2);
+                Console.WriteLine($"Rover Position: {xRover} {yRover} {positionRover}\n" +
+                $"Rover Movement: {movementRover}\n");
+
+                Rover newRover = new Rover(xRover, yRover, positionRover);
+                NewPosition.Move(movementRoverArray, ref newRover, plateau1);
+
+                roverList.Add(newRover);
+            }
 
             foreach (Rover rover in roverList)
             {
@@ -63,6 +55,7 @@ namespace Mars_Rover
             }
 
             plateau1.printGrid(roverList);
+
         }
     }
 }
