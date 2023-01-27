@@ -43,6 +43,7 @@ namespace MarsRover
                 Console.WriteLine($"Rover Position: {xRover} {yRover} {positionRover}\n" +
                 $"Rover Movement: {movementRover}\n");
 
+
                 Rover newRover = new Rover(xRover, yRover, positionRover);
                 NewPosition.Move(movementRoverArray, ref newRover, plateau1);
 
@@ -51,7 +52,14 @@ namespace MarsRover
 
             foreach (Rover rover in roverList)
             {
-                Console.WriteLine($"New Position: {rover.posx} {rover.posy} {rover.direction}\n");
+                if (rover.posx < 0 || rover.posx > width || rover.posy > height || rover.posy < 0 )
+                {
+                    throw new InvalidRoverMovementException("Invalid Rover Movement. Rover will fall off the Plataeu. Please edit and try again.");
+                } else
+                {
+                    Console.WriteLine($"New Position: {rover.posx} {rover.posy} {rover.direction}\n");
+                }
+    
             }
 
             plateau1.printGrid(roverList);
