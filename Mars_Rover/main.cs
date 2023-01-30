@@ -1,8 +1,7 @@
-﻿using System;
-using System.IO;
-using PlateauNamespace;
+﻿using PlateauNamespace;
 using NewPositionNamespace;
 using RoverNamespace;
+using ExceptionTestNamesapce;
 
 namespace MarsRover
 {
@@ -28,7 +27,7 @@ namespace MarsRover
 
             List<Rover> roverList = new List<Rover>();
 
-            for (int i = 0; i <= allText.Length - 2 ; i+=2)
+            for (int i = 0; i <= allText.Length - 2; i += 2)
             {
                 string currentPositionRover = allText[i + 1];
                 string movementRover = allText[i + 2];
@@ -50,19 +49,28 @@ namespace MarsRover
                 roverList.Add(newRover);
             }
 
-            foreach (Rover rover in roverList)
+            RoverListTest roverTest = new RoverListTest();
+            List<string> validationList = roverTest.ValidationTest(roverList, height, width);
+            
+            if (validationList.Count == 0)
             {
-                if (rover.posx < 0 || rover.posx > width || rover.posy > height || rover.posy < 0 )
+                foreach (Rover rover in roverList)
                 {
-                    throw new InvalidRoverMovementException("Invalid Rover Movement. Rover will fall off the Plataeu. Please edit and try again.");
-                } else
-                {
-                    Console.WriteLine($"New Position: {rover.posx} {rover.posy} {rover.direction}\n");
+                    Console.WriteLine($"{rover.posx} {rover.posy} {rover.direction}");
                 }
-    
+
+                plateau1.printGrid(roverList);
+
+            }
+            else
+            {
+                foreach (string output in validationList)
+                {
+                    Console.WriteLine(output);
+                }
             }
 
-            plateau1.printGrid(roverList);
+            
 
         }
     }
