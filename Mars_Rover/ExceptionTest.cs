@@ -42,11 +42,7 @@ namespace ExceptionTestNamesapce
                 errors.Add("Please enter a single File to use for the program.");
             }
 
-            if (File.Exists(args[0]))
-            {
-                
-            }
-            else
+            if (!(File.Exists(args[0])))
             {
                 errors.Add("Please make sure that argument is a File of the correct format.");
             }
