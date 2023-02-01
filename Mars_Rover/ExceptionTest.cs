@@ -1,15 +1,18 @@
 ﻿using RoverNamespace;
+using System.Xml.Schema;
+using System.IO;
 
 namespace ExceptionTestNamesapce
 {
 
-    internal class RoverListTest : List<string>
+    internal class Validations : List<string>
     {
         private List<Rover>? roverList;
         private int height;
         private int width;
+        private string[] args;
 
-        public List<string> ValidationTest(List<Rover> roverList, int height, int width)
+        public List<string> RoverTest(List<Rover> roverList, int height, int width)
         {
             this.roverList = roverList;
             this.height = height;
@@ -26,6 +29,29 @@ namespace ExceptionTestNamesapce
             }
 
             return ValidationErrors;
+        }
+
+        public List<string> ValidateFile(string[] args)
+        {
+            this.args = args;
+
+            List<string> errors = new List<string>();
+
+            if (args.Length != 1)
+            {
+                errors.Add("Please enter a single File to use for the program.");
+            }
+
+            if (File.Exists(args[0]))
+            {
+                
+            }
+            else
+            {
+                errors.Add("Please make sure that argument is a File of the correct format.");
+            }
+
+            return errors;
         }
     }
 }

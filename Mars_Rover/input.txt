@@ -1,3 +1,5 @@
-﻿1 1
-1 1 N 
-MMMM
+﻿12 12
+4 5 N
+MMLMMLRM
+5 2 S
+LLMMR
