@@ -4,9 +4,9 @@ namespace RoverNamespace
 {
     internal class Rover
     {
-        public int posx = 0;
-        public int posy = 0;
-        public string direction = " ";
+        public int posx { get; set; }
+        public int posy { get; set; }
+        public string direction { get; set; }
 
         public Rover(int x, int y, string newdir)
         {

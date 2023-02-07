@@ -4,8 +4,8 @@ namespace CellNamespace
 {
     internal class Cell
     {
-        public int x = 0;
-        public int y = 0;
-        public int roverCount = 0;
+        public int x { get; set; }
+        public int y { get; set; }
+        public int roverCount { get; set; }
     }
 }

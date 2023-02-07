@@ -7,10 +7,10 @@ namespace ExceptionTestNamesapce
 
     internal class Validations : List<string>
     {
-        private List<Rover>? roverList;
-        private int height;
-        private int width;
-        private string[] args;
+        public List<Rover>? roverList { get; set; }
+        public int height { get; set; }
+        public int width { get; set; }
+        public string[] args { get; set; }
 
         public List<string> RoverTest(List<Rover> roverList, int height, int width)
         {

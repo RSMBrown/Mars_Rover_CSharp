@@ -7,9 +7,9 @@ namespace PlateauNamespace
 {
     internal class Plateau
     {
-        public int width = 0;
-        public int height = 0;
-        public List<Cell> grid = new List<Cell>();
+        public int width { get; set; }
+        public int height { get; set; }
+        public List<Cell> grid { get; set; }
 
         public Plateau(int w, int h)
         {
